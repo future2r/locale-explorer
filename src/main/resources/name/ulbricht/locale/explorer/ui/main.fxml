@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="name.ulbricht.locale.explorer.ui.MainController"
+            styleClass="main-window">
+    <top>
+        <VBox>
+            <HBox styleClass="title-bar">
+                <MenuBar HBox.hgrow="NEVER">
+                    <Menu text="%menu.file">
+                        <MenuItem text="%menu.file.copyMarkdown" onAction="#onCopyMarkdown" accelerator="Shortcut+Shift+C"/>
+                        <MenuItem text="%menu.file.saveMarkdown" onAction="#onSaveMarkdown"/>
+                        <MenuItem text="%menu.file.saveCsv" onAction="#onSaveCsv"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="%menu.file.exit" onAction="#onExit"/>
+                    </Menu>
+                    <Menu text="%menu.help">
+                        <MenuItem text="%menu.help.about" onAction="#onAbout"/>
+                    </Menu>
+                </MenuBar>
+                <Region HBox.hgrow="ALWAYS"/>
+                <MenuButton fx:id="settingsButton" text="%settings.title" styleClass="settings-button">
+                    <items>
+                        <CustomMenuItem hideOnClick="false">
+                            <content>
+                                <GridPane styleClass="settings-panel">
+                                    <columnConstraints>
+                                        <ColumnConstraints/>
+                                        <ColumnConstraints minWidth="160"/>
+                                    </columnConstraints>
+                                    <Label text="%settings.language" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                    <ComboBox fx:id="languageBox" maxWidth="Infinity"
+                                              GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                    <Label text="%settings.theme" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                    <ComboBox fx:id="themeBox" maxWidth="Infinity"
+                                              GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                    <Label text="%settings.fontSize" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                    <Spinner fx:id="fontSizeSpinner" editable="true" maxWidth="Infinity"
+                                             GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                </GridPane>
+                            </content>
+                        </CustomMenuItem>
+                    </items>
+                </MenuButton>
+            </HBox>
+
+            <FlowPane styleClass="tool-panel">
+                <VBox styleClass="tool-field">
+                    <Label text="%toolbar.locale" styleClass="field-label"/>
+                    <ComboBox fx:id="mainLocaleBox" editable="true" prefWidth="260" visibleRowCount="20"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%toolbar.compare" styleClass="field-label"/>
+                    <HBox styleClass="compare-row">
+                        <HBox fx:id="compareChips" styleClass="compare-chips"/>
+                        <ComboBox fx:id="addCompareBox" promptText="%toolbar.compare.add"
+                                  prefWidth="180" visibleRowCount="20"/>
+                    </HBox>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%toolbar.zone" styleClass="field-label"/>
+                    <ComboBox fx:id="zoneBox" editable="true" prefWidth="200" visibleRowCount="20"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%toolbar.instant" styleClass="field-label"/>
+                    <HBox styleClass="instant-row">
+                        <DatePicker fx:id="datePicker" prefWidth="130"/>
+                        <TextField fx:id="timeField" prefColumnCount="8" minWidth="-Infinity" styleClass="mono"/>
+                        <Button text="%toolbar.now" onAction="#onNow"/>
+                        <CheckBox fx:id="liveCheck" text="%toolbar.live"/>
+                    </HBox>
+                </VBox>
+            </FlowPane>
+            <Label fx:id="resolutionHint" styleClass="resolution-hint" wrapText="true" maxWidth="Infinity"
+                   visible="false" managed="false"/>
+        </VBox>
+    </top>
+
+    <left>
+        <ListView fx:id="categoryList" styleClass="category-list"/>
+    </left>
+
+    <center>
+        <SplitPane orientation="VERTICAL" dividerPositions="0.78">
+            <StackPane fx:id="categoryHost" styleClass="category-host"/>
+            <TitledPane text="%code.title" styleClass="code-pane" collapsible="true" expanded="true">
+                <TextArea fx:id="codeArea" editable="false" wrapText="false" styleClass="mono"
+                          text="%code.none"/>
+            </TitledPane>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="status-bar">
+            <Label fx:id="javaLabel"/>
+            <Label fx:id="javafxLabel"/>
+            <Label fx:id="tzdataLabel"/>
+            <Label fx:id="localesLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusMessage"/>
+        </HBox>
+    </bottom>
+</BorderPane>

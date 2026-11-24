@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="name.ulbricht.locale.explorer.ui.DateTimeCategoryController"
+         tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs">
+
+    <Tab text="%datetime.tab.styles">
+        <VBox styleClass="tab-content">
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="%datetime.temporalType" styleClass="field-label"/>
+                    <ComboBox fx:id="kindBox"/>
+                </VBox>
+                <CheckBox fx:id="matrixCheck" text="%datetime.matrix"/>
+                <CheckBox fx:id="patternsCheck" text="%datetime.showPatterns" selected="true"/>
+            </FlowPane>
+            <TableView fx:id="stylesTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%datetime.tab.skeletons">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%datetime.skeleton.own" styleClass="field-label"/>
+                <ComboBox fx:id="skeletonBox" prefWidth="260"/>
+            </HBox>
+            <Label text="%datetime.skeleton.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <Label fx:id="skeletonError" styleClass="error-label" wrapText="true" minHeight="-Infinity" visible="false" managed="false"/>
+            <TableView fx:id="skeletonTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%datetime.tab.pattern">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%datetime.pattern.own" styleClass="field-label"/>
+                <ComboBox fx:id="patternBox" prefWidth="380"/>
+            </HBox>
+            <Label text="%datetime.pattern.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <Label fx:id="patternError" styleClass="error-label" wrapText="true" minHeight="-Infinity" visible="false" managed="false"/>
+            <TableView fx:id="patternTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%datetime.tab.names">
+        <VBox styleClass="tab-content">
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="%datetime.names.locale" styleClass="field-label"/>
+                    <ComboBox fx:id="namesLocaleBox"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%datetime.names.kind" styleClass="field-label"/>
+                    <ComboBox fx:id="namesKindBox"/>
+                </VBox>
+            </FlowPane>
+            <Label text="%datetime.names.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="namesTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%datetime.tab.parse">
+        <VBox styleClass="tab-content">
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="%datetime.parse.input" styleClass="field-label"/>
+                    <ComboBox fx:id="parseInputBox" prefWidth="220"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%datetime.parse.formatter" styleClass="field-label"/>
+                    <ComboBox fx:id="parserBox"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%datetime.parse.resolver" styleClass="field-label"/>
+                    <ComboBox fx:id="resolverBox"/>
+                </VBox>
+            </FlowPane>
+            <TableView fx:id="parseTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%datetime.tab.legacy">
+        <VBox styleClass="tab-content">
+            <Label text="%datetime.legacy.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="legacyTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+</TabPane>

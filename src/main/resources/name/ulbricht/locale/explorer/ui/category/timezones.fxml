@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="name.ulbricht.locale.explorer.ui.TimeZoneCategoryController">
+
+    <HBox styleClass="category-header">
+        <Label text="%zone.selected" styleClass="field-label"/>
+        <ComboBox fx:id="zoneBox" editable="true" prefWidth="240" visibleRowCount="20"/>
+        <Button text="%zone.useToolbar" onAction="#onUseToolbarZone"/>
+        <Label text="%zone.selected.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs" VBox.vgrow="ALWAYS">
+        <Tab text="%zone.tab.names">
+            <VBox styleClass="tab-content">
+                <Label text="%zone.names.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="namesTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%zone.tab.rules">
+            <VBox styleClass="tab-content">
+                <TableView fx:id="rulesTable" prefHeight="260" minHeight="150"/>
+                <Label text="%zone.transitions" styleClass="section-label"/>
+                <TableView fx:id="transitionsTable" VBox.vgrow="ALWAYS" minHeight="120"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%zone.tab.world">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="info-row">
+                    <ComboBox fx:id="addZoneBox" editable="true" prefWidth="240" visibleRowCount="20"
+                              promptText="%zone.world.addPrompt"/>
+                    <Button text="%zone.world.add" onAction="#onAddWorldZone"/>
+                    <Button text="%zone.world.remove" onAction="#onRemoveWorldZone"/>
+                </HBox>
+                <Label text="%zone.world.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="worldTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%zone.tab.gap">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="info-row">
+                    <Label text="%zone.gap.localDateTime" styleClass="field-label"/>
+                    <ComboBox fx:id="localDateTimeBox" prefWidth="260"/>
+                </HBox>
+                <Label text="%zone.gap.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <Label fx:id="gapError" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                       visible="false" managed="false"/>
+                <TableView fx:id="resolutionTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%zone.tab.all">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="filter-row">
+                    <TextField fx:id="filterField" promptText="%zone.all.filter" prefColumnCount="14"/>
+                    <CheckBox fx:id="unusualCheck" text="%zone.all.unusual"/>
+                    <CheckBox fx:id="dstCheck" text="%zone.all.dst"/>
+                    <CheckBox fx:id="shortIdCheck" text="%zone.all.shortIds"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="countLabel" styleClass="field-label"/>
+                </HBox>
+                <TableView fx:id="allTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="allIdColumn" text="%zone.all.id" prefWidth="220"/>
+                        <TableColumn fx:id="allOffsetColumn" text="%zone.all.offset" prefWidth="90"/>
+                        <TableColumn fx:id="allNameColumn" text="%zone.all.name" prefWidth="300"/>
+                        <TableColumn fx:id="allDstColumn" text="%zone.all.dstColumn" prefWidth="90"/>
+                        <TableColumn fx:id="allShortIdColumn" text="%zone.all.shortIdColumn" prefWidth="90"/>
+                    </columns>
+                </TableView>
+                <HBox styleClass="button-row">
+                    <Button text="%zone.all.useZone" onAction="#onAllUseZone"/>
+                    <Button text="%zone.all.addWorld" onAction="#onAllAddWorld"/>
+                    <Label text="%zone.all.hint" styleClass="hint-text"/>
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="name.ulbricht.locale.explorer.ui.NumbersCategoryController">
+
+    <HBox styleClass="category-header">
+        <CheckBox fx:id="visualizeCheck" text="%number.visualize" selected="true" minWidth="-Infinity"/>
+        <fx:include source="mark-legend.fxml" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs" VBox.vgrow="ALWAYS">
+        <Tab text="%number.tab.formats">
+            <VBox styleClass="tab-content">
+                <FlowPane styleClass="option-bar">
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.value" styleClass="field-label"/>
+                        <ComboBox fx:id="valueBox" prefWidth="180"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.minInteger" styleClass="field-label"/>
+                        <Spinner fx:id="minIntegerSpinner" prefWidth="80"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.minFraction" styleClass="field-label"/>
+                        <Spinner fx:id="minFractionSpinner" prefWidth="80"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.maxFraction" styleClass="field-label"/>
+                        <Spinner fx:id="maxFractionSpinner" prefWidth="80"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.roundingMode" styleClass="field-label"/>
+                        <ComboBox fx:id="roundingBox"/>
+                    </VBox>
+                    <CheckBox fx:id="groupingCheck" text="%number.grouping" selected="true"/>
+                </FlowPane>
+                <Label fx:id="valueError" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                       visible="false" managed="false"/>
+                <TableView fx:id="formatsTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%number.tab.symbols">
+            <VBox styleClass="tab-content">
+                <TableView fx:id="symbolsTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%number.tab.patterns">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="info-row">
+                    <Label text="%number.pattern.own" styleClass="field-label"/>
+                    <ComboBox fx:id="patternBox" prefWidth="300"/>
+                    <CheckBox fx:id="localizedCheck" text="%number.pattern.localized"/>
+                </HBox>
+                <Label text="%number.pattern.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <Label fx:id="patternError" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                       visible="false" managed="false"/>
+                <TableView fx:id="patternsTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%number.tab.compact">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="info-row">
+                    <Label text="%number.maxFraction" styleClass="field-label"/>
+                    <Spinner fx:id="compactFractionSpinner" prefWidth="80"/>
+                </HBox>
+                <Label text="%number.compact.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="compactTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%number.tab.numbering">
+            <VBox styleClass="tab-content">
+                <Label text="%number.numbering.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="numberingTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%number.tab.parse">
+            <VBox styleClass="tab-content">
+                <FlowPane styleClass="option-bar">
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.parse.input" styleClass="field-label"/>
+                        <ComboBox fx:id="parseInputBox" prefWidth="200"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%number.parse.format" styleClass="field-label"/>
+                        <ComboBox fx:id="parseKindBox"/>
+                    </VBox>
+                    <CheckBox fx:id="strictCheck" text="setStrict(true)"/>
+                    <CheckBox fx:id="integerOnlyCheck" text="setParseIntegerOnly(true)"/>
+                </FlowPane>
+                <Label text="%number.parse.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="parseTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="name.ulbricht.locale.explorer.ui.LocaleCategoryController"
+         tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs">
+
+    <Tab text="%locale.tab.details">
+        <VBox styleClass="tab-content">
+            <TableView fx:id="detailsTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%locale.tab.extensions">
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="info-row">
+                    <Label text="%locale.ext.base" styleClass="field-label"/>
+                    <Label fx:id="extBaseLabel" styleClass="mono"/>
+                </HBox>
+                <GridPane fx:id="extGrid" styleClass="option-grid"/>
+                <Label text="%locale.ext.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <HBox styleClass="info-row">
+                    <Label text="%locale.ext.result" styleClass="field-label"/>
+                    <Label fx:id="extResultLabel" styleClass="mono,result-value"/>
+                </HBox>
+                <Label fx:id="extErrorLabel" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                       visible="false" managed="false"/>
+                <TableView fx:id="extPreviewTable" VBox.vgrow="ALWAYS" minHeight="170"/>
+                <HBox styleClass="button-row">
+                    <Button text="%locale.ext.useMain" onAction="#onExtUseMain"/>
+                    <Button text="%locale.ext.addCompare" onAction="#onExtAddCompare"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </Tab>
+
+    <Tab text="%locale.tab.matching">
+        <VBox styleClass="tab-content">
+            <GridPane styleClass="form-grid">
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="%locale.match.priorityList" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="priorityBox" maxWidth="Infinity" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="%locale.match.mode" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="modeBox" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="%locale.match.candidates" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="candidatesBox" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="customCandidatesLabel" text="%locale.match.customList"
+                       GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="customCandidatesField" styleClass="mono"
+                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+            <Label fx:id="matchErrorLabel" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                   visible="false" managed="false"/>
+            <Label text="%locale.match.ranges" styleClass="section-label"/>
+            <TableView fx:id="rangesTable" prefHeight="150" minHeight="100">
+                <columns>
+                    <TableColumn fx:id="rangeColumn" text="%locale.match.range" sortable="false" prefWidth="220"/>
+                    <TableColumn fx:id="weightColumn" text="%locale.match.weight" sortable="false" prefWidth="120"/>
+                </columns>
+            </TableView>
+            <Label text="%locale.match.result" styleClass="section-label"/>
+            <GridPane styleClass="form-grid">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="80"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="lookup()" styleClass="mono" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="lookupLabel" styleClass="mono,result-value" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="filter()" styleClass="mono" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label fx:id="filterLabel" styleClass="mono" wrapText="true" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            </GridPane>
+        </VBox>
+    </Tab>
+
+    <Tab text="%locale.tab.all">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="filter-row">
+                <TextField fx:id="filterField" promptText="%locale.all.filter" prefColumnCount="16"/>
+                <CheckBox fx:id="withRegionCheck" text="%locale.all.withRegion"/>
+                <CheckBox fx:id="rtlOnlyCheck" text="%locale.all.rtlOnly"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="countLabel" styleClass="field-label"/>
+            </HBox>
+            <TableView fx:id="allTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="allTagColumn" text="%locale.all.tag" prefWidth="150"/>
+                    <TableColumn fx:id="allNameUiColumn" text="%locale.all.nameUi" prefWidth="260"/>
+                    <TableColumn fx:id="allNameOwnColumn" text="%locale.all.nameOwn" prefWidth="260"/>
+                    <TableColumn fx:id="allDirectionColumn" text="%locale.all.direction" prefWidth="90"/>
+                </columns>
+            </TableView>
+            <HBox styleClass="button-row">
+                <Button text="%locale.all.useMain" onAction="#onAllUseMain"/>
+                <Button text="%locale.all.addCompare" onAction="#onAllAddCompare"/>
+                <Label text="%locale.all.hint" styleClass="hint-text"/>
+            </HBox>
+        </VBox>
+    </Tab>
+</TabPane>

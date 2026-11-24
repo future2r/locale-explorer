@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="name.ulbricht.locale.explorer.ui.ListsCategoryController"
+         tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs">
+
+    <Tab text="%list.tab.list">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%list.items" styleClass="field-label"/>
+                <ComboBox fx:id="itemsBox" prefWidth="420"/>
+            </HBox>
+            <Label text="%list.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="listTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%list.tab.message">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%message.pattern" styleClass="field-label" minWidth="-Infinity"/>
+                <ComboBox fx:id="messagePatternBox" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="{0}" styleClass="field-label"/>
+                    <TextField fx:id="nameField" text="Anna" prefColumnCount="10"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%message.date" styleClass="field-label"/>
+                    <Label fx:id="dateLabel" styleClass="mono"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="{2}" styleClass="field-label"/>
+                    <Spinner fx:id="countSpinner" editable="true" prefWidth="110"/>
+                </VBox>
+            </FlowPane>
+            <Label text="%message.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <Label fx:id="messageError" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                   visible="false" managed="false"/>
+            <TableView fx:id="messageTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%list.tab.case">
+        <VBox styleClass="tab-content">
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="%case.words" styleClass="field-label"/>
+                    <ComboBox fx:id="wordsBox" prefWidth="360"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%case.locales" styleClass="field-label"/>
+                    <ComboBox fx:id="caseLocalesBox"/>
+                </VBox>
+            </FlowPane>
+            <Label text="%case.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="caseTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%list.tab.format">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%format.own" styleClass="field-label"/>
+                <ComboBox fx:id="formatBox" prefWidth="320"/>
+            </HBox>
+            <Label fx:id="formatHint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <Label fx:id="formatError" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                   visible="false" managed="false"/>
+            <TableView fx:id="formatTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+</TabPane>

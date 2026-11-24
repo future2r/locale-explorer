@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="name.ulbricht.locale.explorer.ui.CalendarCategoryController"
+         tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs">
+
+    <Tab text="%calendar.tab.rules">
+        <VBox styleClass="tab-content">
+            <Label text="%calendar.rules.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="rulesTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%calendar.tab.sheet">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Button fx:id="previousMonthButton" onAction="#onPreviousMonth"/>
+                <Label fx:id="monthLabel" styleClass="result-value" minWidth="140"/>
+                <Button fx:id="nextMonthButton" onAction="#onNextMonth"/>
+                <Button text="%calendar.sheet.toolbarDate" onAction="#onToolbarMonth"/>
+                <CheckBox fx:id="weekNumbersCheck" text="%calendar.sheet.weekNumbers" selected="true"/>
+            </HBox>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                <FlowPane fx:id="sheets" styleClass="month-sheets"/>
+            </ScrollPane>
+        </VBox>
+    </Tab>
+
+    <Tab text="%calendar.tab.chronologies">
+        <VBox styleClass="tab-content">
+            <Label text="%calendar.chrono.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="chronoTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%calendar.tab.turn">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%calendar.turn.year" styleClass="field-label"/>
+                <Spinner fx:id="yearSpinner" editable="true" prefWidth="110"/>
+            </HBox>
+            <Label text="%calendar.turn.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="turnTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+</TabPane>

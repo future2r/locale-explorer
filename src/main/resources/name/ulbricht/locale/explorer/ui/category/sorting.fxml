@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:controller="name.ulbricht.locale.explorer.ui.SortingCategoryController"
+         tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs">
+
+    <Tab text="%sort.tab.sort">
+        <VBox styleClass="tab-content">
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="%sort.words" styleClass="field-label"/>
+                    <ComboBox fx:id="wordsBox" prefWidth="420"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%sort.strength" styleClass="field-label"/>
+                    <ComboBox fx:id="strengthBox"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%sort.decomposition" styleClass="field-label"/>
+                    <ComboBox fx:id="decompositionBox"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%sort.locales" styleClass="field-label"/>
+                    <ComboBox fx:id="sortLocalesBox"/>
+                </VBox>
+            </FlowPane>
+            <Label text="%sort.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="sortTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%sort.tab.compare">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="A" styleClass="field-label"/>
+                <TextField fx:id="firstField" text="Äpfel" prefColumnCount="14"/>
+                <Label text="B" styleClass="field-label"/>
+                <TextField fx:id="secondField" text="apfel" prefColumnCount="14"/>
+            </HBox>
+            <Label text="%sort.compare.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="compareTable" VBox.vgrow="ALWAYS"/>
+            <TableView fx:id="plainTable" prefHeight="140" minHeight="110"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%sort.tab.boundaries">
+        <VBox styleClass="tab-content">
+            <FlowPane styleClass="option-bar">
+                <VBox styleClass="tool-field">
+                    <Label text="%sort.text" styleClass="field-label"/>
+                    <ComboBox fx:id="boundaryTextBox" prefWidth="520"/>
+                </VBox>
+                <VBox styleClass="tool-field">
+                    <Label text="%sort.locales" styleClass="field-label"/>
+                    <ComboBox fx:id="boundaryLocalesBox"/>
+                </VBox>
+            </FlowPane>
+            <Label text="%sort.boundaries.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="boundaryTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+
+    <Tab text="%sort.tab.normalization">
+        <VBox styleClass="tab-content">
+            <HBox styleClass="info-row">
+                <Label text="%sort.text" styleClass="field-label"/>
+                <ComboBox fx:id="normalizationBox" prefWidth="420"/>
+            </HBox>
+            <Label text="%sort.normalization.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+            <TableView fx:id="normalizationTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </Tab>
+</TabPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Legend for the highlighted special characters; included by the number and currency views. -->
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Region?>
+
+<!-- The wrap length is only used when the width is unknown: then the legend asks for one row. -->
+<FlowPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" styleClass="mark-legend"
+          prefWrapLength="100000">
+    <Label text="%mark.noBreakSpace">
+        <graphic><Label text="&#160;" styleClass="mark-space, mark-no-break-space"/></graphic>
+    </Label>
+    <Label text="%mark.narrowNoBreakSpace">
+        <graphic><Label text="&#8239;" styleClass="mark-space, mark-narrow-no-break-space"/></graphic>
+    </Label>
+    <Label text="%mark.otherSpace">
+        <graphic><Label text="&#8201;" styleClass="mark-space, mark-other-space"/></graphic>
+    </Label>
+    <Label text="%mark.directionMark">
+        <graphic><Region styleClass="mark-bar, mark-direction-mark"/></graphic>
+    </Label>
+    <Label text="%mark.minusSign">
+        <graphic><Label text="&#8722;" styleClass="legend-minus"/></graphic>
+    </Label>
+    <Label text="%mark.copyHint"/>
+</FlowPane>

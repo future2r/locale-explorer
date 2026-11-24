@@ -1,0 +1,67 @@
+/* Dark theme: overrides the Modena base colors; all other colors are derived from them. */
+
+.root {
+    -fx-base: #3b3b3b;
+    -fx-background: #262626;
+    -fx-control-inner-background: #1f1f1f;
+    -fx-control-inner-background-alt: #252525;
+    -fx-accent: #2f6fbf;
+    -fx-default-button: #2f6fbf;
+    -fx-focus-color: #5c9be0;
+    -fx-faint-focus-color: #5c9be022;
+    -fx-selection-bar-non-focused: #474747;
+    -fx-box-border: #4a4a4a;
+    -fx-prompt-text-fill: #8c8c8c;
+}
+
+.text-input {
+    -fx-prompt-text-fill: #8c8c8c;
+}
+
+.month-cell.week-number,
+.month-cell.other-month,
+.field-label,
+.status-bar .label,
+.hint-text,
+.suggestion-description,
+.table-cell:empty-value {
+    -fx-text-fill: #a6a6a6;
+}
+
+.table-cell:differs {
+    -fx-background-color: #4a3a12;
+    -fx-text-fill: #f4c76b;
+}
+
+.error-label,
+.table-cell:error-value {
+    -fx-text-fill: #ef6c6c;
+}
+
+.resolution-hint,
+.warning-label {
+    -fx-text-fill: #f4c76b;
+    -fx-background-color: #4a3a12;
+}
+
+.text-field:error,
+.combo-box:error {
+    -fx-text-box-border: #ef6c6c;
+    -fx-focus-color: #ef6c6c;
+}
+
+.root {
+    -mark-no-break-space: #a8681c;
+    -mark-narrow-no-break-space: #2f6fa8;
+    -mark-other-space: #3e7d43;
+    -mark-direction-mark: #ce93d8;
+    -mark-minus-sign: #f48fb1;
+}
+
+.mark-legend > .label {
+    -fx-text-fill: #a6a6a6;
+}
+
+.table-cell:differs .marked-text-plain {
+    -fx-fill: #f4c76b;
+}

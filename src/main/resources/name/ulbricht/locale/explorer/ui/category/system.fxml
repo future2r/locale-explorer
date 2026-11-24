@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="name.ulbricht.locale.explorer.ui.SystemCategoryController">
+
+    <HBox styleClass="category-header">
+        <Button text="%system.copyMarkdown" onAction="#onCopyMarkdown" minWidth="-Infinity"/>
+        <Label fx:id="copyStatus" styleClass="hint-text"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs" VBox.vgrow="ALWAYS">
+        <Tab fx:id="runtimeTab" text="%system.tab.runtime">
+            <VBox styleClass="tab-content">
+                <Label text="%system.runtime.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="runtimeTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab fx:id="defaultsTab" text="%system.tab.defaults">
+            <VBox styleClass="tab-content">
+                <TableView fx:id="defaultsTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab fx:id="availabilityTab" text="%system.tab.availability">
+            <VBox styleClass="tab-content">
+                <Label text="%system.availability.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="availabilityTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%system.tab.change">
+            <VBox styleClass="tab-content">
+                <Label text="%system.change.warning" styleClass="warning-label" wrapText="true" minHeight="-Infinity"
+                       maxWidth="Infinity"/>
+                <FlowPane styleClass="option-bar">
+                    <VBox styleClass="tool-field">
+                        <Label text="Locale.setDefault" styleClass="field-label"/>
+                        <ComboBox fx:id="defaultLocaleBox" prefWidth="260" visibleRowCount="20"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%system.change.category" styleClass="field-label"/>
+                        <ComboBox fx:id="scopeBox"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="TimeZone.setDefault" styleClass="field-label"/>
+                        <ComboBox fx:id="defaultZoneBox" prefWidth="220" visibleRowCount="20"/>
+                    </VBox>
+                    <Button text="%system.change.apply" onAction="#onApplyDefaults"/>
+                    <Button text="%system.change.reset" onAction="#onResetDefaults"/>
+                </FlowPane>
+                <TableView fx:id="experimentTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="callColumn" text="%system.change.call" prefWidth="380" sortable="false"/>
+                        <TableColumn fx:id="originalColumn" text="%system.change.original" prefWidth="260" sortable="false"/>
+                        <TableColumn fx:id="currentColumn" text="%system.change.current" prefWidth="260" sortable="false"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

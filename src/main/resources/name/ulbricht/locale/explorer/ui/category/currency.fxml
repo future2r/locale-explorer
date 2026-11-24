@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="name.ulbricht.locale.explorer.ui.CurrencyCategoryController">
+
+    <HBox styleClass="category-header">
+        <CheckBox fx:id="visualizeCheck" text="%number.visualize" selected="true" minWidth="-Infinity"/>
+        <fx:include source="mark-legend.fxml" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="category-tabs" VBox.vgrow="ALWAYS">
+        <Tab text="%currency.tab.formats">
+            <VBox styleClass="tab-content">
+                <FlowPane styleClass="option-bar">
+                    <VBox styleClass="tool-field">
+                        <Label text="%currency.amount" styleClass="field-label"/>
+                        <ComboBox fx:id="amountBox" prefWidth="170"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%currency.currency" styleClass="field-label"/>
+                        <ComboBox fx:id="currencyBox" prefWidth="260" visibleRowCount="20"/>
+                    </VBox>
+                    <VBox styleClass="tool-field">
+                        <Label text="%currency.digits" styleClass="field-label"/>
+                        <ComboBox fx:id="digitsBox" prefWidth="220"/>
+                    </VBox>
+                </FlowPane>
+                <Label text="%currency.formats.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <Label fx:id="amountError" styleClass="error-label" wrapText="true" minHeight="-Infinity"
+                       visible="false" managed="false"/>
+                <TableView fx:id="formatsTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%currency.tab.locale">
+            <VBox styleClass="tab-content">
+                <Label text="%currency.locale.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="localeTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%currency.tab.symbols">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="info-row">
+                    <Label text="%currency.symbols.locales" styleClass="field-label"/>
+                    <ComboBox fx:id="symbolLocalesBox"/>
+                </HBox>
+                <Label text="%currency.symbols.hint" styleClass="hint-text" wrapText="true" minHeight="-Infinity"/>
+                <TableView fx:id="symbolsTable" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </Tab>
+
+        <Tab text="%currency.tab.all">
+            <VBox styleClass="tab-content">
+                <HBox styleClass="filter-row">
+                    <TextField fx:id="filterField" promptText="%currency.all.filter" prefColumnCount="14"/>
+                    <Label text="%currency.all.digits" styleClass="field-label"/>
+                    <ComboBox fx:id="digitsFilterBox"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="countLabel" styleClass="field-label"/>
+                </HBox>
+                <TableView fx:id="allTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="allCodeColumn" text="%currency.all.code" prefWidth="80"/>
+                        <TableColumn fx:id="allNumericColumn" text="%currency.all.numeric" prefWidth="80"/>
+                        <TableColumn fx:id="allDigitsColumn" text="%currency.all.digitsColumn" prefWidth="90"/>
+                        <TableColumn fx:id="allNameColumn" text="%currency.all.name" prefWidth="320"/>
+                        <TableColumn fx:id="allSymbolColumn" text="%currency.all.symbol" prefWidth="140"/>
+                    </columns>
+                </TableView>
+                <HBox styleClass="button-row">
+                    <Button text="%currency.all.use" onAction="#onUseCurrency"/>
+                    <Label text="%currency.all.hint" styleClass="hint-text"/>
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,321 @@
+/* Layout and styling shared by the light and the dark theme. */
+
+.title-bar {
+    -fx-alignment: center-left;
+    -fx-padding: 0 8 0 0;
+    -fx-background-color: -fx-background;
+    -fx-border-color: transparent transparent -fx-box-border transparent;
+}
+
+.title-bar .menu-bar {
+    -fx-background-color: transparent;
+}
+
+.settings-panel {
+    -fx-hgap: 0.7em;
+    -fx-vgap: 0.5em;
+    -fx-padding: 0.4em 0.2em;
+    -fx-alignment: center-left;
+}
+
+.tool-panel {
+    -fx-hgap: 1.2em;
+    -fx-vgap: 0.6em;
+    -fx-padding: 0.6em 0.8em;
+    -fx-border-color: transparent transparent -fx-box-border transparent;
+}
+
+.tool-field {
+    -fx-spacing: 0.2em;
+}
+
+.field-label {
+    -fx-font-size: 0.85em;
+    -fx-text-fill: -fx-mid-text-color;
+}
+
+.compare-row,
+.compare-chips,
+.instant-row {
+    -fx-spacing: 0.4em;
+    -fx-alignment: center-left;
+}
+
+.locale-chip {
+    -fx-background-radius: 1em;
+    -fx-padding: 0.2em 0.7em;
+}
+
+.mono {
+    -fx-font-family: "Consolas", "Cascadia Mono", "Monospaced";
+}
+
+.resolution-hint {
+    -fx-padding: 0.3em 0.8em;
+    -fx-text-fill: #8a5300;
+    -fx-background-color: #fdf1d6;
+}
+
+.text-field:error,
+.combo-box:error {
+    -fx-text-box-border: #c62828;
+    -fx-focus-color: #c62828;
+}
+
+.category-list {
+    -fx-pref-width: 14em;
+}
+
+.category-placeholder {
+    -fx-spacing: 0.6em;
+    -fx-padding: 1.2em;
+    -fx-alignment: top-left;
+}
+
+.category-title {
+    -fx-font-size: 1.4em;
+}
+
+/* Category views */
+
+.tab-content {
+    -fx-spacing: 0.6em;
+    -fx-padding: 0.8em;
+}
+
+.info-row,
+.button-row,
+.filter-row {
+    -fx-spacing: 0.6em;
+    -fx-alignment: center-left;
+}
+
+.option-grid,
+.form-grid {
+    -fx-hgap: 0.8em;
+    -fx-vgap: 0.5em;
+    -fx-alignment: center-left;
+}
+
+.section-label {
+    -fx-font-weight: bold;
+    -fx-padding: 0.4em 0 0 0;
+}
+
+.hint-text,
+.suggestion-description {
+    -fx-font-size: 0.85em;
+    -fx-text-fill: -fx-mid-text-color;
+}
+
+.result-value {
+    -fx-font-weight: bold;
+}
+
+.warning-label {
+    -fx-padding: 0.4em 0.6em;
+    -fx-text-fill: #8a5300;
+    -fx-background-color: #fdf1d6;
+}
+
+.error-label {
+    -fx-text-fill: #c62828;
+}
+
+.table-cell:empty-value {
+    -fx-text-fill: -fx-mid-text-color;
+}
+
+.table-cell:error-value {
+    -fx-text-fill: #c62828;
+}
+
+.option-bar {
+    -fx-hgap: 1.2em;
+    -fx-vgap: 0.5em;
+    -fx-alignment: bottom-left;
+}
+
+.table-cell:differs {
+    -fx-background-color: #fdf1d6;
+    -fx-text-fill: #8a5300;
+}
+
+.category-header {
+    -fx-spacing: 0.6em;
+    -fx-alignment: center-left;
+    -fx-padding: 0.5em 0.8em;
+    -fx-border-color: transparent transparent -fx-box-border transparent;
+}
+
+.month-sheets {
+    -fx-hgap: 1em;
+    -fx-vgap: 1em;
+    -fx-padding: 0.2em;
+}
+
+.month-sheet {
+    -fx-spacing: 0.4em;
+    -fx-padding: 0.6em;
+    -fx-border-color: -fx-box-border;
+    -fx-border-radius: 4;
+    -fx-min-width: 17em;
+}
+
+.month-grid {
+    -fx-hgap: 0.15em;
+    -fx-vgap: 0.15em;
+}
+
+.month-cell {
+    -fx-alignment: center;
+    -fx-min-width: 2.1em;
+    -fx-padding: 0.15em 0.2em;
+}
+
+.month-cell.weekday {
+    -fx-font-weight: bold;
+}
+
+.month-cell.week-number,
+.month-cell.other-month {
+    -fx-text-fill: -fx-mid-text-color;
+}
+
+.month-cell.selected-day {
+    -fx-background-color: -fx-accent;
+    -fx-background-radius: 3;
+    -fx-text-fill: white;
+}
+
+.suggestion-cell {
+    -fx-alignment: center-left;
+}
+
+.status-bar {
+    -fx-spacing: 1.5em;
+    -fx-padding: 0.25em 0.8em;
+    -fx-border-color: -fx-box-border transparent transparent transparent;
+}
+
+.status-bar .label {
+    -fx-font-size: 0.85em;
+    -fx-text-fill: -fx-mid-text-color;
+}
+
+/* Highlighted special characters (MarkedText) and their legend. */
+
+.root {
+    -mark-no-break-space: #f3b860;
+    -mark-narrow-no-break-space: #86b9ea;
+    -mark-other-space: #9fd3a2;
+    -mark-direction-mark: #9c27b0;
+    -mark-minus-sign: #c2185b;
+}
+
+.marked-text-plain {
+    -fx-fill: -fx-text-background-color;
+}
+
+.mark-space {
+    -fx-padding: 0;
+    -fx-alignment: center;
+    -fx-background-radius: 2;
+}
+
+.mark-no-break-space {
+    -fx-min-width: 0.45em;
+    -fx-background-color: -mark-no-break-space;
+}
+
+.mark-narrow-no-break-space {
+    -fx-min-width: 0.25em;
+    -fx-background-color: -mark-narrow-no-break-space;
+}
+
+.mark-other-space {
+    -fx-min-width: 0.25em;
+    -fx-background-color: -mark-other-space;
+}
+
+.mark-bar {
+    -fx-min-width: 2px;
+    -fx-pref-width: 2px;
+    -fx-max-width: 2px;
+    -fx-min-height: 1em;
+    -fx-pref-height: 1em;
+    -fx-background-color: -mark-direction-mark;
+}
+
+.marked-text-plain.mark-minus-sign {
+    -fx-fill: -mark-minus-sign;
+    -fx-font-weight: bold;
+}
+
+.mark-legend {
+    -fx-hgap: 1.2em;
+    -fx-vgap: 0.2em;
+    -fx-alignment: center-left;
+}
+
+.mark-legend > .label {
+    -fx-font-size: 0.85em;
+    -fx-text-fill: -fx-mid-text-color;
+    -fx-graphic-text-gap: 0.4em;
+}
+
+.mark-legend .legend-minus {
+    -fx-text-fill: -mark-minus-sign;
+    -fx-font-weight: bold;
+}
+
+/*
+ * Selection wins over the value states above. Author rules beat Modena regardless of their
+ * specificity, so a selected highlighted cell must restore Modena's selection colors itself:
+ * grey while the table is not focused, the selection bar and the focus border while it is.
+ */
+.table-cell:differs:selected,
+.table-cell:error-value:selected,
+.table-cell:empty-value:selected {
+    -fx-background: -fx-selection-bar-non-focused;
+    -fx-background-color: -fx-table-cell-border-color, -fx-background;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-text-fill: -fx-text-background-color;
+}
+
+.table-view:focused .table-cell:differs:selected,
+.table-view:focused .table-cell:error-value:selected,
+.table-view:focused .table-cell:empty-value:selected {
+    -fx-background: -fx-selection-bar;
+    -fx-text-fill: -fx-selection-bar-text;
+}
+
+.table-view:focused .table-cell:differs:focused:selected,
+.table-view:focused .table-cell:error-value:focused:selected,
+.table-view:focused .table-cell:empty-value:focused:selected {
+    -fx-background-color: -fx-focus-color, -fx-cell-focus-inner-border, -fx-selection-bar;
+    -fx-background-insets: 0 1 1 0, 1 2 2 1, 2 3 3 2;
+}
+
+/*
+ * Highlighted special characters take the text color of the cell state. The plain text
+ * otherwise follows -fx-text-background-color, which already adapts to the selection.
+ */
+.table-cell:differs .marked-text-plain {
+    -fx-fill: #8a5300;
+}
+
+.table-cell:differs:selected .marked-text-plain {
+    -fx-fill: -fx-text-background-color;
+}
+
+/* The minus sign keeps its color in every state; declared last to win over the rules above. */
+.table-view .table-cell .marked-text-plain.mark-minus-sign {
+    -fx-fill: -mark-minus-sign;
+}
+
+/* Tables with row selection, such as the system experiments: the selected row wins, too. */
+.table-row-cell:selected .table-cell:differs {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-background-color;
+}
